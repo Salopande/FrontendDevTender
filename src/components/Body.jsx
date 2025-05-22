@@ -11,13 +11,11 @@ const Body = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const userData = useSelector((store)=>store.user)
-    console.log(userData)
     const fetchUser = async () =>{
         try{
             const res = await axios.get(BASEURL + "/profile/view",{
                 withCredentials:true,
             });
-            console.log(res.data)
             dispatch(addUser(res.data))
         }catch(err){
             console.error(err)
